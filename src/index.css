@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-family: Inter var, system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-medium shadow-sm transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r text-white shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl;
+  }
+
+  .input {
+    @apply rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500;
+  }
+}
+
+/* Seasonal Theme Transitions */
+.theme-transition {
+  @apply transition-all duration-500 ease-in-out;
+}
+
+/* Shimmer Effect */
+.shimmer {
+  @apply relative overflow-hidden;
+}
+
+.shimmer::before {
+  @apply absolute inset-0 z-10;
+  content: '';
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s infinite linear;
+  background-size: 200% 100%;
+}
+
+/* Floating Animation */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Glass Effect */
+.glass {
+  @apply backdrop-blur-lg bg-white/30;
+}
+
+/* Seasonal Animations */
+@keyframes snowfall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+@keyframes sandFloat {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+  }
+}
+
+@keyframes flowerSpin {
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  50% {
+    transform: rotate(180deg) translateY(-20px);
+  }
+  100% {
+    transform: rotate(360deg) translateY(0);
+  }
+}
+
+.animate-snowfall {
+  animation: snowfall 5s linear infinite;
+}
+
+.animate-sand-float {
+  animation: sandFloat 3s ease-in-out infinite;
+}
+
+.animate-flower-spin {
+  animation: flowerSpin 4s ease-in-out infinite;
+}
+
+/* Pulse Animation with Custom Duration */
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
